@@ -60,8 +60,8 @@ class Pokemon extends Equatable {
         stats: (json['stats'] as List).map((e) => PokemonStat.fromJson(e)).toList(),
         height: json['height'],
         weight: json['weight'],
-        avgPower: json['avgPower'],
-        bmi: json['bmi'],
+        avgPower: json['avgPower'].toDouble(),
+        bmi: json['bmi'].toDouble(),
       );
 
   Map<String, dynamic> toJson() => {
