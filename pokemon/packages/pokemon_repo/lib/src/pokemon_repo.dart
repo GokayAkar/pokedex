@@ -4,10 +4,10 @@ class PokemonRepo {
   final PokemonHttpHandler _httpHandler;
   final PokemonLocalStorageHandler _storageHandler;
 
-  const PokemonRepo({
-    required PokemonHttpHandler httpHandler,
+  PokemonRepo({
+    PokemonHttpHandler? httpHandler,
     required PokemonLocalStorageHandler storageHandler,
-  })  : _httpHandler = httpHandler,
+  })  : _httpHandler = httpHandler ?? PokemonApiClient(),
         _storageHandler = storageHandler;
 
   Future<Pokemon> getPokemon(PokemonId id) async {
