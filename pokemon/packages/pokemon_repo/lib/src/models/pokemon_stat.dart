@@ -1,4 +1,6 @@
-class PokemonStat {
+import 'package:equatable/equatable.dart';
+
+class PokemonStat extends Equatable {
   final int value;
   final String name;
 
@@ -16,4 +18,7 @@ class PokemonStat {
         'value': value,
         'name': name,
       };
+
+  @override
+  List<Object?> get props => [name, value];
 }

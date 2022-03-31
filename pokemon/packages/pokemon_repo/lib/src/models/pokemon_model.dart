@@ -1,9 +1,11 @@
+import 'package:equatable/equatable.dart';
+
 import 'pokemon_stat.dart';
 import 'pokemon_type.dart';
 
 typedef PokemonId = int;
 
-class Pokemon {
+class Pokemon extends Equatable {
   final PokemonId id;
   final String name;
   final String imageUrl;
@@ -73,4 +75,7 @@ class Pokemon {
         'avgPower': avgPower,
         'bmi': bmi,
       };
+
+  @override
+  List<Object?> get props => [id];
 }

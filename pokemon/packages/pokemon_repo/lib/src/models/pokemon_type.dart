@@ -1,6 +1,8 @@
 import 'dart:ui';
 
-abstract class PokemonType {
+import 'package:equatable/equatable.dart';
+
+abstract class PokemonType extends Equatable {
   final String name;
 
   Color get color;
@@ -25,6 +27,9 @@ abstract class PokemonType {
         return UnknownType(name: name);
     }
   }
+
+  @override
+  List<Object?> get props => [name];
 }
 
 class UnknownType extends PokemonType {
