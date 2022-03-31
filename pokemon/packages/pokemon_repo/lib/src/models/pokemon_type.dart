@@ -19,6 +19,8 @@ abstract class PokemonType {
         return const Poison();
       case 'grass':
         return const Grass();
+      case 'flying':
+        return const Flying();
       default:
         return UnknownType(name: name);
     }
@@ -61,6 +63,14 @@ class Grass extends PokemonType {
 
 class Poison extends PokemonType {
   const Poison() : super(name: 'poison');
+
+  @override
+  // TODO: implement color
+  Color get color => throw UnimplementedError();
+}
+
+class Flying extends PokemonType {
+  const Flying() : super(name: 'flying');
 
   @override
   // TODO: implement color
