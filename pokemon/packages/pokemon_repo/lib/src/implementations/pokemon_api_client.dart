@@ -35,4 +35,17 @@ class PokemonApiClient implements PokemonHttpHandler {
 
     return json.decode(pokemonResponse.body);
   }
+
+  @override
+  Future<Map<String, dynamic>> fetchPokemons({required int limit, required int offset}) async {
+    final request = Uri.https(_baseUrl, '/pokemon?limit=$limit&offset=$offset');
+
+    final response = await _httpClient.get(request);
+
+    if (response.statusCode != 200) {
+      throw RequestFailed();
+    }
+
+    return json.decode(response.body);
+  }
 }
