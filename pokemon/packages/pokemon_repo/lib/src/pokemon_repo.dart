@@ -18,4 +18,12 @@ class PokemonRepo {
 
     return Pokemon.fromJson(pokemonJson);
   }
+
+  Future<bool> updateFavorites(List<PokemonId> ids) async {
+    return await _storageHandler.updateFavorites(ids);
+  }
+
+  Future<List<PokemonId>> getFavoritePokemons() async {
+    return await _storageHandler.getFavorites();
+  }
 }

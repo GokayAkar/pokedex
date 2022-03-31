@@ -7,6 +7,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 class SharedPreferencesCacheHandler implements PokemonLocalStorageHandler {
   final SharedPreferences _prefs;
 
+  static const _favoritesKey = 'favorites';
+
   const SharedPreferencesCacheHandler({required SharedPreferences prefs}) : _prefs = prefs;
 
   @override
@@ -25,5 +27,30 @@ class SharedPreferencesCacheHandler implements PokemonLocalStorageHandler {
   @override
   Future<bool> savePokemon(Pokemon pokemon) {
     return _prefs.setString(pokemon.id.toString(), json.encode(pokemon.toJson()));
+  }
+
+  @override
+  Future<bool> updateFavorites(List<PokemonId> ids) async {
+    return await _prefs.setStringList(_favoritesKey, ids.map((e) => e.toString()).toList());
+  }
+
+  @override
+  Future<List<PokemonId>> getFavorites() async {
+    try {
+      final ids = (_prefs.getStringList(_favoritesKey)) ?? [];
+      final pokemonIds = <PokemonId>[];
+
+      for (final idString in ids) {
+        final id = int.tryParse(idString);
+        if (id != null) {
+          pokemonIds.add(id);
+        }
+      }
+
+      return pokemonIds;
+    } catch (_) {
+      // TODO log error
+      return <PokemonId>[];
+    }
   }
 }

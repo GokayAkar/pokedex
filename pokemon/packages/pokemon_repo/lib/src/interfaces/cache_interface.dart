@@ -1,6 +1,10 @@
+import 'dart:async';
+
 import 'package:pokemon_api/src/models/pokemon_model.dart';
 
 abstract class PokemonLocalStorageHandler {
-  Future<bool> savePokemon(Pokemon pokemon);
-  Future<Map<String, dynamic>?>? readPokemon(PokemonId id);
+  FutureOr<bool> savePokemon(Pokemon pokemon);
+  FutureOr<Map<String, dynamic>?>? readPokemon(PokemonId id);
+  FutureOr<bool> updateFavorites(List<PokemonId> ids);
+  FutureOr<List<PokemonId>> getFavorites();
 }
