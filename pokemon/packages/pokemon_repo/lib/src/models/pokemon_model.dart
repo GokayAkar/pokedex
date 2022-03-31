@@ -50,7 +50,7 @@ class Pokemon {
     );
   }
 
-  factory Pokemon.fromJson(Map<String, dynamic> json) => Pokemon(
+  factory Pokemon.fromJson(Map<String, dynamic> json) => Pokemon._(
         id: json['id'],
         imageUrl: json['imageUrl'],
         name: json['name'],
@@ -58,6 +58,8 @@ class Pokemon {
         stats: (json['stats'] as List).map((e) => PokemonStat.fromJson(e)).toList(),
         height: json['height'],
         weight: json['weight'],
+        avgPower: json['avgPower'],
+        bmi: json['bmi'],
       );
 
   Map<String, dynamic> toJson() => {
@@ -68,5 +70,7 @@ class Pokemon {
         'stats': stats.map((e) => e.toJson()).toList(),
         'height': height,
         'weight': weight,
+        'avgPower': avgPower,
+        'bmi': bmi,
       };
 }
