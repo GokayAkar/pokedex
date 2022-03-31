@@ -14,14 +14,14 @@ class PokemonApiClient implements PokemonHttpHandler {
   /// {@macro meta_weather_api_client}
   PokemonApiClient({http.Client? httpClient}) : _httpClient = httpClient ?? http.Client();
 
-  static const _baseUrl = 'https://pokeapi.co/api/v2';
+  static const _baseUrl = 'www.pokeapi.co';
   final http.Client _httpClient;
 
   @override
   Future<Map<String, dynamic>> fetchPokemonDetail(PokemonId id) async {
     final pokemonRequest = Uri.https(
       _baseUrl,
-      '/pokemon/$id',
+      '/api/v2/pokemon/$id',
     );
     final pokemonResponse = await _httpClient.get(pokemonRequest);
 
@@ -38,7 +38,7 @@ class PokemonApiClient implements PokemonHttpHandler {
 
   @override
   Future<Map<String, dynamic>> fetchPokemons({required int limit, required int offset}) async {
-    final request = Uri.https(_baseUrl, '/pokemon?limit=$limit&offset=$offset');
+    final request = Uri.https(_baseUrl, '/api/v2/pokemon?limit=$limit&offset=$offset');
 
     final response = await _httpClient.get(request);
 
