@@ -4,6 +4,8 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:pokemon_api/src/interfaces/network_interface.dart';
 
+import '../models/models.dart';
+
 class PokemonNotFound implements Exception {}
 
 class RequestFailed implements Exception {}
@@ -16,7 +18,7 @@ class PokemonApiClient implements PokemonHttpHandler {
   final http.Client _httpClient;
 
   @override
-  Future<Map<String, dynamic>> fetchPokemon(int id) async {
+  Future<Map<String, dynamic>> fetchPokemon(PokemonId id) async {
     final pokemonRequest = Uri.https(
       _baseUrl,
       '/pokemon/$id',

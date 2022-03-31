@@ -10,7 +10,7 @@ class SharedPreferencesCacheHandler implements PokemonLocalStorageHandler {
   const SharedPreferencesCacheHandler({required SharedPreferences prefs}) : _prefs = prefs;
 
   @override
-  Future<Map<String, dynamic>?>? readPokemon(int id) {
+  Future<Map<String, dynamic>?>? readPokemon(PokemonId id) {
     try {
       if (_prefs.containsKey(id.toString())) {
         return json.decode(_prefs.getString(id.toString()) ?? "");

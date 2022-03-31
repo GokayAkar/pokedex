@@ -13,7 +13,7 @@ class PokemonRepo {
   })  : _httpHandler = httpHandler,
         _storageHandler = storageHandler;
 
-  Future<Pokemon> getPokemon(int id) async {
+  Future<Pokemon> getPokemon(PokemonId id) async {
     final Map<String, dynamic> pokemonJson = await _storageHandler.readPokemon(id) ?? (await _httpHandler.fetchPokemon(id));
 
     return Pokemon.fromJson(pokemonJson);

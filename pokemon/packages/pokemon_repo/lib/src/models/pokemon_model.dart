@@ -1,7 +1,9 @@
 import 'pokemon_stat.dart';
 
+typedef PokemonId = int;
+
 class Pokemon {
-  final int id;
+  final PokemonId id;
   final String name;
   final List<String> types;
   final String imageUrl;
@@ -24,7 +26,7 @@ class Pokemon {
   });
 
   factory Pokemon({
-    required int id,
+    required PokemonId id,
     required String imageUrl,
     required String name,
     required List<String> types,
