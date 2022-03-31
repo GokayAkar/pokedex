@@ -18,7 +18,7 @@ class PokemonApiClient implements PokemonHttpHandler {
   final http.Client _httpClient;
 
   @override
-  Future<Map<String, dynamic>> fetchPokemon(PokemonId id) async {
+  Future<Map<String, dynamic>> fetchPokemonDetail(PokemonId id) async {
     final pokemonRequest = Uri.https(
       _baseUrl,
       '/pokemon/$id',
