@@ -13,10 +13,11 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.0.1
-  flutter_localizations:
-    sdk: flutter
   pokemon_api:
     path: packages/pokemon_repo
+  flutter_localizations:
+    sdk: flutter
+  
 
 dev_dependencies:
   flutter_test:
