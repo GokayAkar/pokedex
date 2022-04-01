@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokemon/src/constants/constants.dart';
 import 'package:pokemon/src/localization/l10n.dart';
+import 'package:pokemon/src/pokemon/widgets/pokeball.dart';
 import 'package:pokemon/src/utils/helper_extensions.dart';
 
 class AppIntroPage extends StatelessWidget {
@@ -14,7 +15,7 @@ class AppIntroPage extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/images/pokeball.png'),
+            PokeBall(),
             AppPaddings.normal.horizontal,
             Column(
               mainAxisSize: MainAxisSize.min,
