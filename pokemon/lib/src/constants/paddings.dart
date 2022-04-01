@@ -1,4 +1,4 @@
 class AppPaddings {
   const AppPaddings._();
-  static const normal = 16;
+  static const double normal = 16;
 }
