@@ -54,7 +54,9 @@ class PokemonRepo {
     final pokemonsToFetch = <PriorPokemonInfo>[];
 
     for (final json in response['results']) {
-      final id = (json['url'] as String).split('/').last;
+      final seperatedUrl = (json['url'] as String).split('/');
+      seperatedUrl.removeLast();
+      final id = seperatedUrl.last;
       pokemonsToFetch.add(
         PriorPokemonInfo(
           name: json['name'],
