@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:pokemon/src/pokemon/app_intro_page.dart';
 
 import 'constants/constants.dart';
 import 'settings/settings_controller.dart';
@@ -66,8 +67,9 @@ class MyApp extends StatelessWidget {
               builder: (BuildContext context) {
                 switch (routeSettings.name) {
                   case SettingsView.routeName:
-                  default:
                     return SettingsView(controller: settingsController);
+                  default:
+                    return const AppIntroPage();
                 }
               },
             );
