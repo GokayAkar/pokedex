@@ -31,7 +31,7 @@ flutter:
   fonts:
     - family: NotoSans
       fonts:
-        - asset: NotoSans-Regular.ttf
+        - asset: fonts/NotoSans-Regular.ttf
 
   assets:
     # Add assets from the images directory to the application.
