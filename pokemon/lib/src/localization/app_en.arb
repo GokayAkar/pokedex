@@ -1,6 +1,11 @@
 {
-  "appTitle": "pokemon",
+  "appTitle": "Pokemon",
   "@appTitle": {
     "description": "The title of the application"
-  }
+  },
+  "pokemon": "Pokemon",
+  "pokedex": "Pokedex",
+  "allPokemons":"All Pokemons",
+  "favourites":"Favourites"
+
 }
