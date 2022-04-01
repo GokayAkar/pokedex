@@ -38,7 +38,7 @@ class PokemonRepo {
       );
     }
 
-    return Pokemon(
+    final pokemon = Pokemon(
       id: pokemonJson['id'],
       imageUrl: imageUrl,
       name: pokemonJson['name'],
@@ -47,6 +47,10 @@ class PokemonRepo {
       height: pokemonJson['height'],
       weight: pokemonJson['weight'],
     );
+
+    _storageHandler.savePokemon(pokemon);
+
+    return pokemon;
   }
 
   Future<PokemonPaginationResponse> getPokemonsToFetch({required int limit, required int offset}) async {
