@@ -4,7 +4,7 @@ import 'package:mocktail/mocktail.dart';
 
 import 'package:pokemon_api/pokemon_repo.dart';
 
-import 'example_responses.dart';
+import '../example_responses.dart';
 
 class MockHttpClient extends Mock implements http.Client {}
 
