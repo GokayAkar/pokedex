@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pokemon/src/constants/constants.dart';
 import 'package:pokemon/src/localization/l10n.dart';
 import 'package:pokemon/src/pokemon/pokemon_detail/pokemon_detail.dart';
-import 'package:pokemon/src/pokemon/pokemon_detail/widgets/mark_favourite_button.dart';
 import 'package:pokemon_api/pokemon_repo.dart';
 
 class PokemonDetailPage extends StatelessWidget {
@@ -20,7 +19,7 @@ class PokemonDetailPage extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            backgroundColor: pokemon.types.first.color,
+            backgroundColor: pokemon.pokemonColor,
             title: Text(pokemon.name),
           ),
           SliverToBoxAdapter(

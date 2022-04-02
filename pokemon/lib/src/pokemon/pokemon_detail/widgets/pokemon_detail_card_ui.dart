@@ -24,7 +24,7 @@ class PokemonDetailCardUI extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            color: pokemon.types.first.color,
+            color: pokemon.pokemonColor,
             child: CachedNetworkImage(
               imageUrl: pokemon.imageUrl,
               fit: BoxFit.fill,

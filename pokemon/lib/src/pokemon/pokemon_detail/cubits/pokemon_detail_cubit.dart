@@ -25,6 +25,14 @@ class PokemonDetailCubit extends Cubit<PokemonDetailState> {
     getPokemon();
   }
 
+  @override
+  emit(PokemonDetailState state) {
+    if (isClosed) {
+      return;
+    }
+    super.emit(state);
+  }
+
   Future<void> getPokemon() async {
     try {
       if (_pokedex.containsKey(_id)) {
@@ -72,6 +80,7 @@ class PokemonDetailCubit extends Cubit<PokemonDetailState> {
     } catch (e) {
       debugPrint(e.toString());
       //TODO log error
+
       emit(
         const PokemonDetailState(
           status: StateStatus.unknownError,
