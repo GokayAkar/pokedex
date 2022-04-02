@@ -16,11 +16,14 @@ class PokemonDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final pokemon = ModalRoute.of(context)!.settings.arguments as Pokemon;
     return Scaffold(
+      appBar: AppBar(backgroundColor: pokemon.pokemonColor, elevation: 0),
       body: CustomScrollView(
         slivers: [
-          SliverAppBar(
-            backgroundColor: pokemon.pokemonColor,
-            title: Text(pokemon.name),
+          SliverPersistentHeader(
+            delegate: PokemonSliverHeader(
+              pokemon: pokemon,
+              expandedHeight: 200.h,
+            ),
           ),
           SliverToBoxAdapter(
             child: Container(
@@ -81,7 +84,7 @@ class PokemonDetailPage extends StatelessWidget {
               ),
               childCount: pokemon.stats.length,
             ),
-          )
+          ),
         ],
       ),
       floatingActionButton: MarkFavouriteButton(id: pokemon.id),
