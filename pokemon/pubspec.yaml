@@ -17,6 +17,7 @@ dependencies:
     path: packages/pokemon_repo
   flutter_localizations:
     sdk: flutter
+  infinite_scroll_pagination: ^3.1.0
   
 
 dev_dependencies:
