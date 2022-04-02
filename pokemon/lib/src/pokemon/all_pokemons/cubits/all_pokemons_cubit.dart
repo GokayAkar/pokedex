@@ -25,6 +25,12 @@ class AllPokemonsCubit extends Cubit<AllPokemonsState> {
     });
   }
 
+  @override
+  Future<void> close() {
+    _pagingController.dispose();
+    return super.close();
+  }
+
   Future<void> _fetchPokemons(int offset) async {
     try {
       final paginationResponse = await _repo.getPokemonsToFetch(limit: _limit, offset: offset);
