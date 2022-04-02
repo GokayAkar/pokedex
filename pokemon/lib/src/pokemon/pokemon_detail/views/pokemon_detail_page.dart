@@ -19,7 +19,12 @@ class PokemonDetailPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: pokemon.pokemonColor,
         elevation: 0,
-        leading: const Icon(Icons.arrow_back_ios_new),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
         iconTheme: const IconThemeData(
           color: AppColors.textColorBlack,
         ),
