@@ -4,8 +4,24 @@ import 'package:pokemon/src/localization/l10n.dart';
 import 'package:pokemon/src/pokemon/pokemon.dart';
 import 'package:pokemon/src/utils/helper_extensions.dart';
 
-class AppIntroPage extends StatelessWidget {
+class AppIntroPage extends StatefulWidget {
   const AppIntroPage({Key? key}) : super(key: key);
+
+  @override
+  State<AppIntroPage> createState() => _AppIntroPageState();
+}
+
+class _AppIntroPageState extends State<AppIntroPage> {
+  @override
+  void initState() {
+    WidgetsBinding.instance?.addPostFrameCallback(
+      (_) async {
+        await Future.delayed(const Duration(seconds: 1));
+        Navigator.of(context).pushReplacementNamed(AllPokemonsPage.routeName);
+      },
+    );
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
