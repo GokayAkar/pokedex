@@ -31,6 +31,7 @@ class Pokemon extends Equatable {
   });
 
   Color get pokemonColor => types.first.color;
+  String get typesString => types.map((e) => e.name).join(', ');
 
   factory Pokemon({
     required PokemonId id,
