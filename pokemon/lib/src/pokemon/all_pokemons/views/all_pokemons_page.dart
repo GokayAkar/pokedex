@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:pokemon/src/pokemon/all_pokemons/cubits/all_pokemons_cubit.dart';
+import 'package:pokemon/src/pokemon/pokemon_detail/pokemon_detail.dart';
 import 'package:pokemon_api/pokemon_repo.dart';
 
 class AllPokemonsPage extends StatelessWidget {
@@ -14,11 +15,7 @@ class AllPokemonsPage extends StatelessWidget {
       body: PagedGridView<int, PriorPokemonInfo>(
         pagingController: pagingController,
         builderDelegate: PagedChildBuilderDelegate(
-          itemBuilder: (_, item, __) => SizedBox(
-            child: Text(
-              item.name,
-            ),
-          ),
+          itemBuilder: (_, item, __) => PokemonDetailCard(id: item.id),
         ),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,

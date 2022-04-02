@@ -21,7 +21,9 @@ class PokemonDetailCubit extends Cubit<PokemonDetailState> {
             status: StateStatus.loading,
             pokemon: null,
           ),
-        );
+        ) {
+    getPokemon();
+  }
 
   Future<void> getPokemon() async {
     try {
