@@ -56,6 +56,7 @@ void main() {
       test('throws RequestFailed on non-200 response', () async {
         final response = MockResponse();
         when(() => response.statusCode).thenReturn(400);
+        when(() => response.body).thenReturn('');
         when(() => httpClient.get(any())).thenAnswer((_) async => response);
         expect(
           () async => await pokemonApiClient.fetchPokemons(limit: limit, offset: offset),
@@ -125,6 +126,7 @@ void main() {
       test('throws RequestFailed on non-200 response', () async {
         final response = MockResponse();
         when(() => response.statusCode).thenReturn(400);
+        when(() => response.body).thenReturn('');
         when(() => httpClient.get(any())).thenAnswer((_) async => response);
         expect(
           () async => await pokemonApiClient.fetchPokemonDetail(id),

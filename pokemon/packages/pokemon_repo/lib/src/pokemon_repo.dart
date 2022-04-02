@@ -24,7 +24,7 @@ class PokemonRepo {
     for (final statJson in pokemonJson['stats']) {
       stats.add(
         PokemonStat(
-          name: statJson['stat']['name'],
+          name: (statJson['stat']['name'] as String).upperCaseFirstLetter,
           value: statJson['base_stat'],
         ),
       );
@@ -33,7 +33,7 @@ class PokemonRepo {
     for (final typeJson in pokemonJson['types']) {
       types.add(
         PokemonType.fromString(
-          name: typeJson['type']['name'],
+          name: (typeJson['type']['name'] as String).upperCaseFirstLetter,
         ),
       );
     }
@@ -41,7 +41,7 @@ class PokemonRepo {
     final pokemon = Pokemon(
       id: pokemonJson['id'],
       imageUrl: imageUrl,
-      name: pokemonJson['name'],
+      name: (pokemonJson['name'] as String).upperCaseFirstLetter,
       types: types,
       stats: stats,
       height: pokemonJson['height'],
@@ -96,4 +96,8 @@ class PokemonRepo {
       return null;
     }
   }
+}
+
+extension UpperCaseFirstLetter on String {
+  String get upperCaseFirstLetter => replaceFirst(this[0], this[0].toUpperCase());
 }

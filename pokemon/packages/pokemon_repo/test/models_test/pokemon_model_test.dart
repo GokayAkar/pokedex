@@ -16,54 +16,54 @@ void main() {
     types = [
       const Fire(),
       const Water(),
-      const UnknownType(name: 'random'),
+      const UnknownType(name: 'Random'),
     ];
 
     typesJson = [
-      'fire',
-      'water',
-      'random',
+      'Fire',
+      'Water',
+      'Random',
     ];
 
     stats = [
-      const PokemonStat(name: 'hp', value: 20),
-      const PokemonStat(name: 'attack', value: 30),
-      const PokemonStat(name: 'defence', value: 40),
-      const PokemonStat(name: 'special_attack', value: 50),
-      const PokemonStat(name: 'special_defence', value: 60),
-      const PokemonStat(name: 'speed', value: 70),
+      const PokemonStat(name: 'Hp', value: 20),
+      const PokemonStat(name: 'Attack', value: 30),
+      const PokemonStat(name: 'Defence', value: 40),
+      const PokemonStat(name: 'Special_attack', value: 50),
+      const PokemonStat(name: 'Special_defence', value: 60),
+      const PokemonStat(name: 'Speed', value: 70),
     ];
 
     statsJson = [
       {
         'value': 20,
-        'name': 'hp',
+        'name': 'Hp',
       },
       {
         'value': 30,
-        'name': 'attack',
+        'name': 'Attack',
       },
       {
         'value': 40,
-        'name': 'defence',
+        'name': 'Defence',
       },
       {
         'value': 50,
-        'name': 'special_attack',
+        'name': 'Special_attack',
       },
       {
         'value': 60,
-        'name': 'special_defence',
+        'name': 'Special_defence',
       },
       {
         'value': 70,
-        'name': 'speed',
+        'name': 'Speed',
       },
     ];
 
     pokemonJson = {
       'id': 1,
-      'name': 'clefairy',
+      'name': 'Clefairy',
       'types': typesJson,
       'imageUrl': imageUrl,
       'stats': statsJson,
@@ -75,7 +75,7 @@ void main() {
 
     pokemon = Pokemon(
       id: 1,
-      name: 'clefairy',
+      name: 'Clefairy',
       types: types,
       imageUrl: imageUrl,
       height: 10,
