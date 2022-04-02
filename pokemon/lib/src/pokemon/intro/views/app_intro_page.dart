@@ -27,16 +27,6 @@ class _AppIntroPageState extends State<AppIntroPage> {
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(
-      BoxConstraints(maxWidth: MediaQuery.of(context).size.width, maxHeight: MediaQuery.of(context).size.height),
-      designSize: const Size(375, 812),
-      context: context,
-      minTextAdapt: true,
-      orientation: Orientation.portrait,
-    );
-
-    FontSizes.initProportionedFontSizes();
-    AppPaddings.initProportionedPaddings();
     return Scaffold(
       backgroundColor: AppColors.introBackgroundColor,
       body: Center(
