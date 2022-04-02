@@ -9,20 +9,25 @@ class PokedexAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        const PokeBall(),
-        AppPaddings.small.horizontal,
-        Text(
-          context.l10n.pokedex,
-          style: const TextStyle(
-            color: AppColors.textColorBlack,
-            fontWeight: FontWeights.w700,
-            fontSize: FontSizes.big,
-          ),
-        )
-      ],
+    return AppBar(
+      backgroundColor: AppColors.textColorWhite,
+      elevation: 0,
+      title: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const PokeBall(),
+          AppPaddings.small.horizontal,
+          Text(
+            context.l10n.pokedex,
+            style: const TextStyle(
+              color: AppColors.textColorBlack,
+              fontWeight: FontWeights.w700,
+              fontSize: FontSizes.big,
+            ),
+          )
+        ],
+      ),
     );
   }
 
