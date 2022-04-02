@@ -161,7 +161,7 @@ void main() {
       });
 
       test('getFavorites', () async {
-        const favorites = [1, 2, 3];
+        const favorites = {1, 2, 3};
         when(() => pokemonLocalStorageHandler.getFavorites()).thenReturn(favorites);
         final result = await repo.getFavoritePokemons();
         expect(result, favorites);

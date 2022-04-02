@@ -35,10 +35,10 @@ class SharedPreferencesCacheHandler implements PokemonLocalStorageHandler {
   }
 
   @override
-  List<PokemonId> getFavorites() {
+  Set<PokemonId> getFavorites() {
     try {
       final ids = (_prefs.getStringList(favoritesKey)) ?? [];
-      final pokemonIds = <PokemonId>[];
+      final pokemonIds = <PokemonId>{};
 
       for (final idString in ids) {
         final id = int.tryParse(idString);
@@ -50,7 +50,7 @@ class SharedPreferencesCacheHandler implements PokemonLocalStorageHandler {
       return pokemonIds;
     } catch (_) {
       // TODO log error
-      return <PokemonId>[];
+      return <PokemonId>{};
     }
   }
 }

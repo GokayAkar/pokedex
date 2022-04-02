@@ -6,5 +6,5 @@ abstract class PokemonLocalStorageHandler {
   FutureOr<bool> savePokemon(Pokemon pokemon);
   FutureOr<Map<String, dynamic>?>? readPokemon(PokemonId id);
   FutureOr<bool> updateFavorites(Set<PokemonId> ids);
-  FutureOr<List<PokemonId>> getFavorites();
+  FutureOr<Set<PokemonId>> getFavorites();
 }

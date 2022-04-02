@@ -79,7 +79,7 @@ class PokemonRepo {
     return await _storageHandler.updateFavorites(ids);
   }
 
-  Future<List<PokemonId>> getFavoritePokemons() async {
+  Future<Set<PokemonId>> getFavoritePokemons() async {
     return await _storageHandler.getFavorites();
   }
 
