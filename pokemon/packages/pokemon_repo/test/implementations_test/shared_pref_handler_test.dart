@@ -29,7 +29,7 @@ void main() {
     ],
   );
   Map<String, dynamic> pokemonJson = pokemon.toJson();
-  List<PokemonId> favorites = [1, 2, 3];
+  Set<PokemonId> favorites = {1, 2, 3};
   late SharedPreferencesCacheHandler handler;
   late SharedPreferences pref;
 
@@ -64,7 +64,7 @@ void main() {
     });
 
     test('update favorites', () async {
-      final updatedFavorites = List<PokemonId>.from(favorites)..add(4);
+      final updatedFavorites = Set<PokemonId>.from(favorites)..add(4);
       final updatedFavoritesStringList = updatedFavorites.map((e) => e.toString()).toList();
       when(() => pref.setStringList(SharedPreferencesCacheHandler.favoritesKey, updatedFavoritesStringList)).thenAnswer(
         (_) async => true,

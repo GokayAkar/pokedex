@@ -75,7 +75,7 @@ class PokemonRepo {
     );
   }
 
-  Future<bool> updateFavorites(List<PokemonId> ids) async {
+  Future<bool> updateFavorites(Set<PokemonId> ids) async {
     return await _storageHandler.updateFavorites(ids);
   }
 

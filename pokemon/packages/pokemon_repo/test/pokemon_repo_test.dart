@@ -135,7 +135,7 @@ void main() {
 
     group('update favorites', () {
       test('verify call', () async {
-        const favorites = [1, 2, 3];
+        const favorites = {1, 2, 3};
         try {
           await repo.updateFavorites(favorites);
         } catch (_) {}
@@ -144,7 +144,7 @@ void main() {
       });
 
       test('updateFavorites', () async {
-        const favorites = [1, 2, 3];
+        const favorites = {1, 2, 3};
         when(() => pokemonLocalStorageHandler.updateFavorites(favorites)).thenAnswer((_) => true);
         final result = await repo.updateFavorites(favorites);
         expect(result, true);
