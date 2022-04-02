@@ -19,11 +19,11 @@ class PokedexTabBar extends StatelessWidget implements PreferredSizeWidget {
       indicatorWeight: 4,
       labelColor: AppColors.textColorBlack,
       unselectedLabelColor: AppColors.textColorGrey,
-      labelStyle: const TextStyle(
+      labelStyle: TextStyle(
         fontWeight: FontWeights.w500,
         fontSize: FontSizes.normal,
       ),
-      unselectedLabelStyle: const TextStyle(
+      unselectedLabelStyle: TextStyle(
         fontWeight: FontWeights.w400,
         fontSize: FontSizes.normal,
       ),

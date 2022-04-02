@@ -23,7 +23,7 @@ class PokedexAppBar extends StatelessWidget implements PreferredSizeWidget {
           AppPaddings.small.horizontal,
           Text(
             context.l10n.pokedex,
-            style: const TextStyle(
+            style: TextStyle(
               color: AppColors.textColorBlack,
               fontWeight: FontWeights.w700,
               fontSize: FontSizes.big,

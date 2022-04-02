@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pokemon/src/constants/constants.dart';
 import 'package:pokemon/src/localization/l10n.dart';
 import 'package:pokemon/src/pokemon/home/home.dart';
@@ -26,6 +27,16 @@ class _AppIntroPageState extends State<AppIntroPage> {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(
+      BoxConstraints(maxWidth: MediaQuery.of(context).size.width, maxHeight: MediaQuery.of(context).size.height),
+      designSize: const Size(375, 812),
+      context: context,
+      minTextAdapt: true,
+      orientation: Orientation.portrait,
+    );
+
+    FontSizes.initProportionedFontSizes();
+    AppPaddings.initProportionedPaddings();
     return Scaffold(
       backgroundColor: AppColors.introBackgroundColor,
       body: Center(
@@ -40,7 +51,7 @@ class _AppIntroPageState extends State<AppIntroPage> {
               children: [
                 Text(
                   context.l10n.pokemon.toUpperCase(),
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: AppColors.textColorWhite,
                     fontSize: FontSizes.normal,
                     fontWeight: FontWeights.w400,
@@ -48,7 +59,7 @@ class _AppIntroPageState extends State<AppIntroPage> {
                 ),
                 Text(
                   context.l10n.pokedex,
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: AppColors.textColorWhite,
                     fontSize: FontSizes.huge,
                     fontWeight: FontWeights.w700,
