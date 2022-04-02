@@ -9,7 +9,7 @@ class PokemonSliverHeader extends SliverPersistentHeaderDelegate {
   final Pokemon pokemon;
   final double expandedHeight;
 
-  static const _imageHeight = 136;
+  static const _backgroundPokeballHeight = 160;
 
   const PokemonSliverHeader({
     required this.pokemon,
@@ -39,13 +39,15 @@ class PokemonSliverHeader extends SliverPersistentHeaderDelegate {
               child: Image.asset(
                 'assets/images/background_pokeball.png',
                 color: pokemon.pokemonColor,
+                height: _backgroundPokeballHeight.h,
+                fit: BoxFit.fitHeight,
               ),
             ),
             Positioned(
               child: CachedNetworkImage(
                 imageUrl: pokemon.imageUrl,
                 fit: BoxFit.fitHeight,
-                height: _imageHeight.h,
+                height: 136.h,
               ),
               bottom: 0,
               right: AppPaddings.p16.w,
@@ -100,7 +102,7 @@ class PokemonSliverHeader extends SliverPersistentHeaderDelegate {
   double get maxExtent => expandedHeight;
 
   @override
-  double get minExtent => _imageHeight.h;
+  double get minExtent => _backgroundPokeballHeight.h;
 
   @override
   bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) => true;

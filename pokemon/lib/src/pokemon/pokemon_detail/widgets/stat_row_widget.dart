@@ -38,7 +38,7 @@ class StatRow extends StatelessWidget {
     return Container(
       padding: EdgeInsets.only(left: AppPaddings.p16.w),
       alignment: Alignment.center,
-      height: 60.h,
+      height: 75.h,
       color: AppColors.whiteColor,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
