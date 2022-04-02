@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pokemon/src/constants/constants.dart';
 import 'package:pokemon/src/localization/l10n.dart';
 
@@ -16,7 +17,7 @@ class PokedexTabBar extends StatelessWidget implements PreferredSizeWidget {
           text: context.l10n.favourites,
         ),
       ],
-      indicatorWeight: 4,
+      indicatorWeight: 4.h,
       labelColor: AppColors.textColorBlack,
       unselectedLabelColor: AppColors.textColorGrey,
       labelStyle: TextStyle(
