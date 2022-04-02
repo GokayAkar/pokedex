@@ -54,7 +54,10 @@ class MyApp extends StatelessWidget {
                 ScreenUtil.setContext(context);
                 FontSizes.initProportionedFontSizes();
 
-                return child!;
+                return MediaQuery(
+                  data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+                  child: child!,
+                );
               },
               // Providing a restorationScopeId allows the Navigator built by the
               // MaterialApp to restore the navigation stack when a user leaves and
