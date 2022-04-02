@@ -45,10 +45,10 @@ void main() {
         } catch (_) {}
         verify(
           () => httpClient.get(
-            Uri.https(
-              'www.pokeapi.co',
-              '/api/v2/pokemon?limit=$limit&offset=$offset',
-            ),
+            Uri.https('pokeapi.co', 'api/v2/pokemon', <String, String>{
+              'limit': limit.toString(),
+              'offset': offset.toString(),
+            }),
           ),
         ).called(1);
       });
@@ -115,7 +115,7 @@ void main() {
         verify(
           () => httpClient.get(
             Uri.https(
-              'www.pokeapi.co',
+              'pokeapi.co',
               '/api/v2/pokemon/$id',
             ),
           ),
