@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pokemon/src/constants/constants.dart';
+import 'package:pokemon/src/pokemon/intro/intro.dart';
 import 'package:pokemon/src/pokemon/pokemon_detail/pokemon_detail.dart';
 import 'package:pokemon_api/pokemon_repo.dart';
 
@@ -23,12 +24,15 @@ class PokemonDetailCardUI extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            color: pokemon.pokemonColor,
-            child: CachedNetworkImage(
-              imageUrl: pokemon.imageUrl,
-              fit: BoxFit.fill,
-              progressIndicatorBuilder: (_, __, ___) => const CircularProgressIndicator(),
+          Expanded(
+            child: Container(
+              width: double.infinity,
+              color: pokemon.pokemonColor,
+              child: CachedNetworkImage(
+                imageUrl: pokemon.imageUrl,
+                fit: BoxFit.fill,
+                placeholder: (_, __) => const LoadingWidget(),
+              ),
             ),
           ),
           AppPaddings.p8.verticalSpace,
@@ -68,6 +72,7 @@ class PokemonDetailCardUI extends StatelessWidget {
               ),
             ),
           ),
+          AppPaddings.p10.verticalSpace,
         ],
       ),
     );

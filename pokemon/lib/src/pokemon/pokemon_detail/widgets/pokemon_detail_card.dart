@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pokemon/src/constants/constants.dart';
 import 'package:pokemon/src/localization/l10n.dart';
+import 'package:pokemon/src/pokemon/intro/intro.dart';
 import 'package:pokemon/src/pokemon/pokemon_detail/pokemon_detail.dart';
 import 'package:pokemon_api/pokemon_repo.dart';
 
@@ -60,7 +61,7 @@ class _CardBody extends StatelessWidget {
   Widget build(BuildContext context) {
     switch (state.status) {
       case PokemonDetailStateStatus.loading:
-        return const CircularProgressIndicator();
+        return const LoadingWidget();
       case PokemonDetailStateStatus.success:
         return PokemonDetailCardUI(
           pokemon: state.pokemon!,

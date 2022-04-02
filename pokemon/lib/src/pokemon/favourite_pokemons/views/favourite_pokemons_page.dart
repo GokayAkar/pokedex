@@ -6,6 +6,7 @@ import 'package:pokemon/src/constants/paddings.dart';
 import 'package:pokemon/src/localization/l10n.dart';
 import 'package:pokemon/src/pokemon/all_pokemons/views/all_pokemons_page.dart';
 import 'package:pokemon/src/pokemon/favourite_pokemons/favourite_pokemons.dart';
+import 'package:pokemon/src/pokemon/intro/intro.dart';
 import 'package:pokemon/src/pokemon/pokemon_detail/pokemon_detail.dart';
 
 class FavouritePokemonsPage extends StatelessWidget {
@@ -34,7 +35,7 @@ class _Body extends StatelessWidget {
     switch (state.stateStatus) {
       case FavouritePokemonStateStatus.loading:
         return const Center(
-          child: CircularProgressIndicator(),
+          child: LoadingWidget(),
         );
       case FavouritePokemonStateStatus.successful:
         return GridView.builder(
