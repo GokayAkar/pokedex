@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:equatable/equatable.dart';
 
 import 'pokemon_stat.dart';
@@ -27,6 +29,8 @@ class Pokemon extends Equatable {
     required this.avgPower,
     required this.bmi,
   });
+
+  Color get pokemonColor => types.first.color;
 
   factory Pokemon({
     required PokemonId id,
