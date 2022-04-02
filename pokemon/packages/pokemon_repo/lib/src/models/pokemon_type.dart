@@ -1,12 +1,10 @@
-import 'dart:ui';
-
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
 abstract class PokemonType extends Equatable {
   final String name;
 
-  Color get color;
+  String get hexCode;
 
   const PokemonType({
     required this.name,
@@ -55,7 +53,7 @@ abstract class PokemonType extends Equatable {
 
 class UnknownType extends PokemonType {
   @override
-  Color get color => Colors.blue;
+  String get hexCode => '68A090';
 
   const UnknownType({
     required String name,
@@ -66,103 +64,103 @@ class Fire extends PokemonType {
   const Fire() : super(name: 'Fire');
 
   @override
-  Color get color => Colors.blue;
+  String get hexCode => 'F08030';
 }
 
 class Water extends PokemonType {
   const Water() : super(name: 'Water');
 
   @override
-  Color get color => Colors.blue;
+  String get hexCode => '6890F0';
 }
 
 class Grass extends PokemonType {
   const Grass() : super(name: 'Grass');
 
   @override
-  Color get color => Colors.blue;
+  String get hexCode => '78C850';
 }
 
 class Poison extends PokemonType {
   const Poison() : super(name: 'Poison');
 
   @override
-  Color get color => Colors.blue;
+  String get hexCode => 'A040A0';
 }
 
 class Flying extends PokemonType {
   const Flying() : super(name: 'Flying');
 
   @override
-  Color get color => Colors.blue;
+  String get hexCode => 'A890F0';
 }
 
 class Bug extends PokemonType {
   const Bug() : super(name: 'Bug');
 
   @override
-  Color get color => Colors.blue;
+  String get hexCode => 'A8B820';
 }
 
 class Normal extends PokemonType {
   const Normal() : super(name: 'Normal');
 
   @override
-  Color get color => Colors.blue;
+  String get hexCode => 'A8A878';
 }
 
 class Electric extends PokemonType {
   const Electric() : super(name: 'Electric');
 
   @override
-  Color get color => Colors.blue;
+  String get hexCode => 'F8D030';
 }
 
 class Ground extends PokemonType {
   const Ground() : super(name: 'Ground');
 
   @override
-  Color get color => Colors.blue;
+  String get hexCode => 'E0C068';
 }
 
 class Fairy extends PokemonType {
   const Fairy() : super(name: 'Fairy');
 
   @override
-  Color get color => Colors.blue;
+  String get hexCode => 'EE99AC';
 }
 
 class Fighting extends PokemonType {
   const Fighting() : super(name: 'Fighting');
 
   @override
-  Color get color => Colors.blue;
+  String get hexCode => 'C03028';
 }
 
 class Psychic extends PokemonType {
   const Psychic() : super(name: 'Psychic');
 
   @override
-  Color get color => Colors.blue;
+  String get hexCode => 'F85888';
 }
 
 class Rock extends PokemonType {
   const Rock() : super(name: 'Rock');
 
   @override
-  Color get color => Colors.blue;
+  String get hexCode => 'B8A038';
 }
 
 class Steel extends PokemonType {
   const Steel() : super(name: 'Steel');
 
   @override
-  Color get color => Colors.blue;
+  String get hexCode => 'B8B8D0';
 }
 
 class Ice extends PokemonType {
   const Ice() : super(name: 'Ice');
 
   @override
-  Color get color => Colors.blue;
+  String get hexCode => '98D8D8';
 }
