@@ -37,7 +37,7 @@ class PokemonDetailCardView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AppColors.textColorWhite,
+      color: AppColors.whiteColor,
       height: 186.h,
       width: 110.w,
       child: BlocBuilder<PokemonDetailCubit, PokemonDetailState>(

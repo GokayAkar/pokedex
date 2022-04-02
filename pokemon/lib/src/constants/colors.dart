@@ -8,4 +8,6 @@ class AppColors {
   static const textColorBlack = Color(0xff161A33);
   static const textColorGrey = Color(0xff6B6B6B);
   static const textColorWhite = Color(0xffFFFFFF);
+  static const whiteColor = Color(0xffFFFFFF);
+  static const favouriteButtonColor = Color(0xffD5DEFF);
 }

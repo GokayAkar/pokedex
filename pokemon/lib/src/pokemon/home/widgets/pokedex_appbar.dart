@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pokemon/src/constants/constants.dart';
 import 'package:pokemon/src/localization/l10n.dart';
-import 'package:pokemon/src/utils/helper_extensions.dart';
 
 class PokedexAppBar extends StatelessWidget implements PreferredSizeWidget {
   final PreferredSizeWidget? bottom;
@@ -13,14 +13,14 @@ class PokedexAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: AppColors.textColorWhite,
+      backgroundColor: AppColors.whiteColor,
       elevation: 0,
       bottom: bottom,
       title: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          AppPaddings.small.horizontal,
+          AppPaddings.p8.horizontalSpace,
           Text(
             context.l10n.pokedex,
             style: TextStyle(

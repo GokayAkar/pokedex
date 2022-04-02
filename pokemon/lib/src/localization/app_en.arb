@@ -9,6 +9,12 @@
   "favourites":"Favourites",
   "pokemonNotFound":"Pokemon Not Found",
   "requestError":"Server Error",
-  "unknownError":"Unexpected Error"
+  "unknownError":"Unexpected Error",
+  "height":"Height",
+  "weight":"Weight",
+  "bmi":"BMI",
+  "markFavourite":"Mark as favourite",
+  "removeFromFavourites":"Mark as unfavourite",
+  "baseStats":"Base Stats"
 
 }

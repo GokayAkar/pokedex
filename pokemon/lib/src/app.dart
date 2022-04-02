@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pokemon/src/pokemon/home/home.dart';
 import 'package:pokemon/src/pokemon/intro/intro.dart';
+import 'package:pokemon/src/pokemon/pokemon_detail/pokemon_detail.dart';
 
 import 'constants/constants.dart';
 import 'settings/settings_controller.dart';
@@ -67,7 +68,7 @@ class MyApp extends StatelessWidget {
             // SettingsController to display the correct theme.
             theme: ThemeData(
               fontFamily: Fonts.notoSans,
-              scaffoldBackgroundColor: AppColors.textColorWhite,
+              scaffoldBackgroundColor: AppColors.homeBackgroundColor,
             ),
             darkTheme: ThemeData.dark(),
             themeMode: settingsController.themeMode,
@@ -81,6 +82,8 @@ class MyApp extends StatelessWidget {
                   switch (routeSettings.name) {
                     case HomePage.routeName:
                       return const HomePage();
+                    case PokemonDetailPage.routeName:
+                      return const PokemonDetailPage();
                     case SettingsView.routeName:
                       return SettingsView(controller: settingsController);
                     default:

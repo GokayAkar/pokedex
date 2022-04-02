@@ -4,7 +4,6 @@ import 'package:pokemon/src/constants/constants.dart';
 import 'package:pokemon/src/localization/l10n.dart';
 import 'package:pokemon/src/pokemon/home/home.dart';
 import 'package:pokemon/src/pokemon/intro/intro.dart';
-import 'package:pokemon/src/utils/helper_extensions.dart';
 
 class AppIntroPage extends StatefulWidget {
   const AppIntroPage({Key? key}) : super(key: key);
@@ -34,7 +33,7 @@ class _AppIntroPageState extends State<AppIntroPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const PokeBall(),
-            AppPaddings.normal.horizontal,
+            AppPaddings.p16.horizontalSpace,
             Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
