@@ -59,7 +59,7 @@ class PokemonDetailCardUI extends StatelessWidget {
           Padding(
             padding: textPadding,
             child: Text(
-              pokemon.types.map((e) => e.name).join(', '),
+              pokemon.typesString,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
                 fontSize: FontSizes.tiny,

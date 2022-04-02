@@ -30,16 +30,10 @@ class PokemonDetailCard extends StatelessWidget {
 class PokemonDetailCardView extends StatelessWidget {
   const PokemonDetailCardView({Key? key}) : super(key: key);
 
-  static double width = 110.w;
-  static double height = 186.h;
-  static double aspectRatio = width / height;
-
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return ColoredBox(
       color: AppColors.whiteColor,
-      height: 186.h,
-      width: 110.w,
       child: BlocBuilder<PokemonDetailCubit, PokemonDetailState>(
         builder: (context, state) => AnimatedSwitcher(
           duration: AnimationConstants.animatedSwitcherDuration,
