@@ -65,9 +65,9 @@ class _CardBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     switch (state.status) {
-      case StateStatus.loading:
+      case PokemonDetailStateStatus.loading:
         return const CircularProgressIndicator();
-      case StateStatus.success:
+      case PokemonDetailStateStatus.success:
         return PokemonDetailCardUI(
           pokemon: state.pokemon!,
         );
@@ -82,14 +82,14 @@ class _CardBody extends StatelessWidget {
   }
 }
 
-extension StatusToErrorStringConverter on StateStatus {
+extension StatusToErrorStringConverter on PokemonDetailStateStatus {
   String getErrorMessage(BuildContext context) {
     switch (this) {
-      case StateStatus.notFound:
+      case PokemonDetailStateStatus.notFound:
         return context.l10n.pokemonNotFound;
-      case StateStatus.requestFailed:
+      case PokemonDetailStateStatus.requestFailed:
         return context.l10n.requestError;
-      case StateStatus.unknownError:
+      case PokemonDetailStateStatus.unknownError:
       default:
         return context.l10n.unknownError;
     }

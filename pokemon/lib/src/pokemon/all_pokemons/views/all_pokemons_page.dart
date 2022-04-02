@@ -10,26 +10,30 @@ import 'package:pokemon_api/pokemon_repo.dart';
 class AllPokemonsPage extends StatelessWidget {
   const AllPokemonsPage({Key? key}) : super(key: key);
 
+  static final gridDelegate = SliverGridDelegateWithFixedCrossAxisCount(
+    crossAxisCount: 3,
+    childAspectRatio: PokemonDetailCardView.aspectRatio,
+    mainAxisSpacing: AppPaddings.pokemonCardSpacing.h,
+    crossAxisSpacing: AppPaddings.pokemonCardSpacing.w,
+  );
+
+  static final gridPadding = EdgeInsets.symmetric(horizontal: AppPaddings.pokemonCardSpacing.w) +
+      EdgeInsets.only(
+        top: AppPaddings.pokemonCardSpacing.h,
+      );
+
   @override
   Widget build(BuildContext context) {
     final pagingController = context.read<AllPokemonsCubit>().state.pagingController;
     return Scaffold(
       body: SafeArea(
         child: PagedGridView<int, PriorPokemonInfo>(
-          padding: EdgeInsets.symmetric(horizontal: AppPaddings.pokemonCardSpacing.w) +
-              EdgeInsets.only(
-                top: AppPaddings.pokemonCardSpacing.h,
-              ),
+          padding: gridPadding,
           pagingController: pagingController,
           builderDelegate: PagedChildBuilderDelegate(
             itemBuilder: (_, item, __) => PokemonDetailCard(id: item.id),
           ),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
-            childAspectRatio: PokemonDetailCardView.aspectRatio,
-            mainAxisSpacing: AppPaddings.pokemonCardSpacing.h,
-            crossAxisSpacing: AppPaddings.pokemonCardSpacing.w,
-          ),
+          gridDelegate: gridDelegate,
         ),
       ),
     );

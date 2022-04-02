@@ -1,6 +1,6 @@
 part of 'pokemon_detail_cubit.dart';
 
-enum StateStatus {
+enum PokemonDetailStateStatus {
   loading,
   success,
   notFound,
@@ -9,7 +9,7 @@ enum StateStatus {
 }
 
 class PokemonDetailState {
-  final StateStatus status;
+  final PokemonDetailStateStatus status;
   final Pokemon? pokemon;
 
   const PokemonDetailState({

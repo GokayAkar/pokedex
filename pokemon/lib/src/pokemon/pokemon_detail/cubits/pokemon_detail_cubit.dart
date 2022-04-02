@@ -18,7 +18,7 @@ class PokemonDetailCubit extends Cubit<PokemonDetailState> {
         _pokedex = pokedex,
         super(
           const PokemonDetailState(
-            status: StateStatus.loading,
+            status: PokemonDetailStateStatus.loading,
             pokemon: null,
           ),
         ) {
@@ -38,16 +38,16 @@ class PokemonDetailCubit extends Cubit<PokemonDetailState> {
       if (_pokedex.containsKey(_id)) {
         emit(
           PokemonDetailState(
-            status: StateStatus.success,
+            status: PokemonDetailStateStatus.success,
             pokemon: _pokedex[_id],
           ),
         );
       }
 
-      if (state.status != StateStatus.loading) {
+      if (state.status != PokemonDetailStateStatus.loading) {
         emit(
           const PokemonDetailState(
-            status: StateStatus.loading,
+            status: PokemonDetailStateStatus.loading,
             pokemon: null,
           ),
         );
@@ -57,14 +57,14 @@ class PokemonDetailCubit extends Cubit<PokemonDetailState> {
       _pokedex[_id] = pokemon;
       emit(
         PokemonDetailState(
-          status: StateStatus.success,
+          status: PokemonDetailStateStatus.success,
           pokemon: pokemon,
         ),
       );
     } on PokemonNotFound catch (_) {
       emit(
         const PokemonDetailState(
-          status: StateStatus.notFound,
+          status: PokemonDetailStateStatus.notFound,
           pokemon: null,
         ),
       );
@@ -73,7 +73,7 @@ class PokemonDetailCubit extends Cubit<PokemonDetailState> {
       //TODO log error
       emit(
         const PokemonDetailState(
-          status: StateStatus.requestFailed,
+          status: PokemonDetailStateStatus.requestFailed,
           pokemon: null,
         ),
       );
@@ -83,7 +83,7 @@ class PokemonDetailCubit extends Cubit<PokemonDetailState> {
 
       emit(
         const PokemonDetailState(
-          status: StateStatus.unknownError,
+          status: PokemonDetailStateStatus.unknownError,
           pokemon: null,
         ),
       );
