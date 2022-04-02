@@ -6,6 +6,9 @@
   "pokemon": "Pokemon",
   "pokedex": "Pokedex",
   "allPokemons":"All Pokemons",
-  "favourites":"Favourites"
+  "favourites":"Favourites",
+  "pokemonNotFound":"Pokemon Not Found",
+  "requestError":"Server Error",
+  "unknownError":"Unexpected Error"
 
 }
