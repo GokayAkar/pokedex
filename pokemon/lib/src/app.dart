@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
             builder: (context, child) {
               ScreenUtil.setContext(context);
               FontSizes.initProportionedFontSizes();
-              AppPaddings.initProportionedPaddings();
+
               return child!;
             },
             // Providing a restorationScopeId allows the Navigator built by the

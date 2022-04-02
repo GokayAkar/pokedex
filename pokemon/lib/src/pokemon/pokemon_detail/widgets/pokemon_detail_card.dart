@@ -1,5 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pokemon/src/constants/constants.dart';
 import 'package:pokemon/src/localization/l10n.dart';
 import 'package:pokemon/src/pokemon/pokemon_detail/pokemon_detail.dart';
@@ -28,16 +30,25 @@ class PokemonDetailCard extends StatelessWidget {
 class PokemonDetailCardView extends StatelessWidget {
   const PokemonDetailCardView({Key? key}) : super(key: key);
 
+  static double width = 110.w;
+  static double height = 186.h;
+  static double aspectRatio = width / height;
+
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<PokemonDetailCubit, PokemonDetailState>(
-      builder: (context, state) => AnimatedSwitcher(
-        duration: AnimationConstants.animatedSwitcherDuration,
-        key: ValueKey(
-          state.status,
-        ),
-        child: _CardBody(
-          state: state,
+    return Container(
+      color: AppColors.textColorWhite,
+      height: 186.h,
+      width: 110.w,
+      child: BlocBuilder<PokemonDetailCubit, PokemonDetailState>(
+        builder: (context, state) => AnimatedSwitcher(
+          duration: AnimationConstants.animatedSwitcherDuration,
+          key: ValueKey(
+            state.status,
+          ),
+          child: _CardBody(
+            state: state,
+          ),
         ),
       ),
     );
@@ -57,16 +68,8 @@ class _CardBody extends StatelessWidget {
       case StateStatus.loading:
         return const CircularProgressIndicator();
       case StateStatus.success:
-        final pokemon = state.pokemon!;
-        return Column(
-          children: [
-            Image.network(
-              pokemon.imageUrl,
-            ),
-            Text(pokemon.id.toString()),
-            Text(pokemon.name),
-            Text(pokemon.types.map((e) => e.name).join(', ')),
-          ],
+        return PokemonDetailCardUI(
+          pokemon: state.pokemon!,
         );
       default:
         return PokemonErrorCard(
