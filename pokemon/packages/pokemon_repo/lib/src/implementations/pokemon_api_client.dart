@@ -8,7 +8,11 @@ import '../models/models.dart';
 
 class PokemonNotFound implements Exception {}
 
-class RequestFailed implements Exception {}
+class RequestFailed implements Exception {
+  final String? reason;
+
+  const RequestFailed({this.reason});
+}
 
 class PokemonApiClient implements PokemonHttpHandler {
   /// {@macro meta_weather_api_client}
@@ -30,7 +34,7 @@ class PokemonApiClient implements PokemonHttpHandler {
     }
 
     if (pokemonResponse.statusCode != 200) {
-      throw RequestFailed();
+      throw RequestFailed(reason: 'request: $pokemonRequest - statusCode:${pokemonResponse.statusCode} - responseBody:${pokemonResponse.body}');
     }
 
     return json.decode(pokemonResponse.body);
@@ -46,7 +50,7 @@ class PokemonApiClient implements PokemonHttpHandler {
     final response = await _httpClient.get(request);
 
     if (response.statusCode != 200) {
-      throw RequestFailed();
+      throw RequestFailed(reason: 'request: $request -  statusCode: ${response.statusCode} - responseBody: ${response.body}');
     }
 
     return json.decode(response.body);
