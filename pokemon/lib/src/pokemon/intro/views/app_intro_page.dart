@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pokemon/src/constants/constants.dart';
 import 'package:pokemon/src/localization/l10n.dart';
-import 'package:pokemon/src/pokemon/pokemon.dart';
+import 'package:pokemon/src/pokemon/home/home.dart';
+import 'package:pokemon/src/pokemon/intro/intro.dart';
 import 'package:pokemon/src/utils/helper_extensions.dart';
 
 class AppIntroPage extends StatefulWidget {
@@ -17,7 +18,7 @@ class _AppIntroPageState extends State<AppIntroPage> {
     WidgetsBinding.instance?.addPostFrameCallback(
       (_) async {
         await Future.delayed(const Duration(seconds: 1));
-        Navigator.of(context).pushReplacementNamed(AllPokemonsPage.routeName);
+        Navigator.of(context).pushReplacementNamed(HomePage.routeName);
       },
     );
     super.initState();

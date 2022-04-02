@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:pokemon/src/pokemon/pokemon.dart';
+import 'package:pokemon/src/pokemon/home/home.dart';
 
-class AllPokemonsPage extends StatelessWidget {
-  const AllPokemonsPage({
+class HomePage extends StatelessWidget {
+  const HomePage({
     Key? key,
   }) : super(key: key);
 

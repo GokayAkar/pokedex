@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:pokemon/src/pokemon/views/all_pokemons_page.dart';
-import 'package:pokemon/src/pokemon/views/app_intro_page.dart';
+import 'package:pokemon/src/pokemon/home/home.dart';
+import 'package:pokemon/src/pokemon/intro/intro.dart';
 
 import 'constants/constants.dart';
 import 'settings/settings_controller.dart';
@@ -70,8 +70,8 @@ class MyApp extends StatelessWidget {
               settings: routeSettings,
               builder: (BuildContext context) {
                 switch (routeSettings.name) {
-                  case AllPokemonsPage.routeName:
-                    return const AllPokemonsPage();
+                  case HomePage.routeName:
+                    return const HomePage();
                   case SettingsView.routeName:
                     return SettingsView(controller: settingsController);
                   default:
