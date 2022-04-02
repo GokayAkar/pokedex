@@ -113,9 +113,16 @@ void main() {
         when(() => pokemonHttpHandler.fetchPokemons(limit: limit, offset: offset)).thenAnswer((_) async => json.decode(fetchPokemonsResponse));
         final response = await repo.getPokemonsToFetch(limit: limit, offset: offset);
         expect(response, isA<PokemonPaginationResponse>());
-        expect(response.isLast, isNotNull);
+        expect(response.isLast, false);
         expect(response.pokemons.first.id, pokemonInfo.id);
         expect(response.pokemons.first.name, pokemonInfo.name);
+      });
+
+      test('isLast true if next parameter is null', () async {
+        when(() => pokemonHttpHandler.fetchPokemons(limit: limit, offset: offset)).thenAnswer((_) async => json.decode(endPaginationResponse));
+        final response = await repo.getPokemonsToFetch(limit: limit, offset: offset);
+        expect(response, isA<PokemonPaginationResponse>());
+        expect(response.isLast, true);
       });
 
       test('throws RequestFailed exception', () async {

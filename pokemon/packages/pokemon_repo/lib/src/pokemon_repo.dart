@@ -70,7 +70,7 @@ class PokemonRepo {
     }
 
     return PokemonPaginationResponse(
-      isLast: response['next'] != null,
+      isLast: response['next'] == null,
       pokemons: pokemonsToFetch,
     );
   }

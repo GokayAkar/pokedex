@@ -54,6 +54,18 @@ const fetchPokemonsResponse = '''{
     ]
 }''';
 
+const endPaginationResponse = '''{
+    "count": 1126,
+    "next": null,
+    "previous": "https://pokeapi.co/api/v2/pokemon/?offset=1050&limit=50",
+    "results": [
+        {
+            "name": "kingler-gmax",
+            "url": "https://pokeapi.co/api/v2/pokemon/10203/"
+        }
+    ]
+}''';
+
 const fetchPokemonDetailResponse = '''{
     "abilities": [
         {
