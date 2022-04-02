@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:pokemon/src/pokemon/pokemon.dart';
 
 class AllPokemonsPage extends StatelessWidget {
@@ -10,9 +11,19 @@ class AllPokemonsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: PokedexAppBar(),
-      body: PokeBall(),
+    return const DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: PokedexAppBar(
+          bottom: PokedexTabBar(),
+        ),
+        body: TabBarView(
+          children: [
+            Icon(Icons.directions_car),
+            Icon(Icons.directions_transit),
+          ],
+        ),
+      ),
     );
   }
 }
