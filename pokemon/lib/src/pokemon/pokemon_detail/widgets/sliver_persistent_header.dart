@@ -34,6 +34,14 @@ class PokemonSliverHeader extends SliverPersistentHeaderDelegate {
           fit: StackFit.expand,
           children: [
             Positioned(
+              bottom: 0,
+              right: 0,
+              child: Image.asset(
+                'assets/images/background_pokeball.png',
+                color: pokemon.pokemonColor,
+              ),
+            ),
+            Positioned(
               child: CachedNetworkImage(
                 imageUrl: pokemon.imageUrl,
                 fit: BoxFit.fitHeight,
