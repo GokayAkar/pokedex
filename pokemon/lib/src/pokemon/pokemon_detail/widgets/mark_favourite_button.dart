@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pokemon/src/constants/constants.dart';
 import 'package:pokemon/src/localization/l10n.dart';
 import 'package:pokemon/src/pokemon/favourite_pokemons/favourite_pokemons.dart';
@@ -20,9 +21,9 @@ class MarkFavouriteButton extends StatelessWidget {
         final label = isSelected ? context.l10n.removeFromFavourites : context.l10n.markFavourite;
         final buttonColor = isSelected ? AppColors.favouriteButtonColor : AppColors.introBackgroundColor;
         final textColor = isSelected ? AppColors.introBackgroundColor : AppColors.textColorWhite;
-        return AnimatedSize(
-          duration: AnimationConstants.animatedSwitcherDuration,
-          key: UniqueKey(),
+        return SizedBox(
+          width: 201.w,
+          height: 50.h,
           child: FloatingActionButton.extended(
             label: Text(
               label,
