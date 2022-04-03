@@ -45,6 +45,7 @@ class PokemonDetailCubit extends Cubit<PokemonDetailState> {
             pokemon: _pokedex[_id],
           ),
         );
+        return;
       }
 
       if (state.status != PokemonDetailStateStatus.loading) {
@@ -57,7 +58,9 @@ class PokemonDetailCubit extends Cubit<PokemonDetailState> {
       }
 
       final pokemon = await _repo.getPokemon(_id, fetchLatest: _isFavourite);
-      _pokedex[_id] = pokemon;
+      if (_isFavourite) {
+        _pokedex[_id] = pokemon;
+      }
       emit(
         PokemonDetailState(
           status: PokemonDetailStateStatus.success,

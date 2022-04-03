@@ -19,11 +19,9 @@ void main() async {
     ),
   );
 
-  //this map will hold all references for in memory pokemons
-  //whenever we get a pokemon we will register it in this map
-  //before get a pokemon we will look up to this map
-  //because otherwise since allPokemons and favourites gonna work seperately
-  //they can get same pokemon and we can hold 2 different ref for same pokemon
+  //because we want to see latest version of favorite pokemons we only fetch them from API
+  //but since we don't want to request pokemon again again while disposing and building again during scrolling
+  //we cache them in memory in this map
   final _pokedex = <PokemonId, Pokemon>{};
 
   final settingsController = SettingsController(SettingsService());
