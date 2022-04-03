@@ -20,7 +20,7 @@ class FavouritePokemonsPage extends StatelessWidget {
           duration: AnimationConstants.animatedSwitcherDuration,
           child: _Body(
             state: state,
-            key: ValueKey(state.stateStatus),
+            key: UniqueKey(),
           ),
         ),
       ),
@@ -44,10 +44,14 @@ class _Body extends StatelessWidget {
           gridDelegate: AllPokemonsPage.gridDelegate,
           padding: AllPokemonsPage.gridPadding,
           itemCount: state.favouritePokemons.length,
-          itemBuilder: (_, index) => PokemonDetailCard(
-            id: state.favouritePokemons.elementAt(index),
-            isFavourite: true,
-          ),
+          itemBuilder: (_, index) {
+            final id = state.favouritePokemons.elementAt(index);
+            return PokemonDetailCard(
+              id: id,
+              isFavourite: true,
+              key: ValueKey(id),
+            );
+          },
         );
       default:
         return Column(

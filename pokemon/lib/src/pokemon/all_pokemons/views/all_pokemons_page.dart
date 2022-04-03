@@ -33,7 +33,10 @@ class AllPokemonsPage extends StatelessWidget {
           padding: gridPadding,
           pagingController: pagingController,
           builderDelegate: PagedChildBuilderDelegate(
-            itemBuilder: (_, item, __) => PokemonDetailCard(id: item.id),
+            itemBuilder: (_, item, __) => PokemonDetailCard(
+              id: item.id,
+              key: ValueKey(item.id),
+            ),
             firstPageProgressIndicatorBuilder: (_) => const LoadingWidget(),
             newPageProgressIndicatorBuilder: (_) => const LoadingWidget(),
             firstPageErrorIndicatorBuilder: (_) => PokemonErrorCard(
