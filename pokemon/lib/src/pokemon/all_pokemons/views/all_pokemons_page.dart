@@ -14,7 +14,7 @@ class AllPokemonsPage extends StatelessWidget {
 
   static final gridDelegate = SliverGridDelegateWithFixedCrossAxisCount(
     crossAxisCount: 3,
-    childAspectRatio: (110 / 186).w,
+    childAspectRatio: (110.w / 186.h) / (ScreenUtil().scaleWidth / ScreenUtil().scaleHeight),
     mainAxisSpacing: AppPaddings.pokemonCardSpacing.h,
     crossAxisSpacing: AppPaddings.pokemonCardSpacing.w,
   );
