@@ -44,6 +44,7 @@ class _Body extends StatelessWidget {
           itemCount: state.favouritePokemons.length,
           itemBuilder: (_, index) => PokemonDetailCard(
             id: state.favouritePokemons.elementAt(index),
+            isFavourite: true,
           ),
         );
       default:

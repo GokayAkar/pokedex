@@ -1,7 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pokemon/src/constants/constants.dart';
 import 'package:pokemon/src/localization/l10n.dart';
 import 'package:pokemon/src/pokemon/intro/intro.dart';
@@ -10,8 +8,10 @@ import 'package:pokemon_api/pokemon_repo.dart';
 
 class PokemonDetailCard extends StatelessWidget {
   final PokemonId id;
+  final bool isFavourite;
   const PokemonDetailCard({
     required this.id,
+    this.isFavourite = false,
     Key? key,
   }) : super(key: key);
 
@@ -22,6 +22,7 @@ class PokemonDetailCard extends StatelessWidget {
         id: id,
         pokedex: context.read<Map<PokemonId, Pokemon>>(),
         repo: context.read<PokemonRepo>(),
+        isFavourite: isFavourite,
       ),
       child: const PokemonDetailCardView(),
     );

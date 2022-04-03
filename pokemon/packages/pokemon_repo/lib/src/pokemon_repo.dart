@@ -10,11 +10,13 @@ class PokemonRepo {
   })  : _httpHandler = httpHandler ?? PokemonApiClient(),
         _storageHandler = storageHandler;
 
-  Future<Pokemon> getPokemon(PokemonId id) async {
-    final cachedPokemon = await _readPokemon(id);
+  Future<Pokemon> getPokemon(PokemonId id, {bool fetchLatest = false}) async {
+    if (!fetchLatest) {
+      final cachedPokemon = await _readPokemon(id);
 
-    if (cachedPokemon != null) {
-      return cachedPokemon;
+      if (cachedPokemon != null) {
+        return cachedPokemon;
+      }
     }
 
     final pokemonJson = await _httpHandler.fetchPokemonDetail(id);

@@ -8,14 +8,17 @@ class PokemonDetailCubit extends Cubit<PokemonDetailState> {
   final PokemonRepo _repo;
   final PokemonId _id;
   final Map<PokemonId, Pokemon> _pokedex;
+  final bool _isFavourite;
 
   PokemonDetailCubit({
     required PokemonRepo repo,
     required PokemonId id,
     required Map<PokemonId, Pokemon> pokedex,
+    bool? isFavourite,
   })  : _repo = repo,
         _id = id,
         _pokedex = pokedex,
+        _isFavourite = isFavourite ?? false,
         super(
           const PokemonDetailState(
             status: PokemonDetailStateStatus.loading,
@@ -53,7 +56,7 @@ class PokemonDetailCubit extends Cubit<PokemonDetailState> {
         );
       }
 
-      final pokemon = await _repo.getPokemon(_id);
+      final pokemon = await _repo.getPokemon(_id, fetchLatest: _isFavourite);
       _pokedex[_id] = pokemon;
       emit(
         PokemonDetailState(

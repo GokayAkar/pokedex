@@ -27,6 +27,7 @@ class PokemonApiClient implements PokemonHttpHandler {
       _baseUrl,
       '/api/v2/pokemon/$id',
     );
+    print(pokemonRequest);
     final pokemonResponse = await _httpClient.get(pokemonRequest);
 
     if (pokemonResponse.statusCode == 404) {

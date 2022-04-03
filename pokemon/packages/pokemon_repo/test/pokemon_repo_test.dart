@@ -74,12 +74,25 @@ void main() {
         expect(cachedPokemon, pokemon);
       });
 
+      test('do not check cache if fetch latest is true ', () async {
+        when(() => pokemonLocalStorageHandler.readPokemon(id)).thenAnswer((_) async => null);
+        when(() => pokemonLocalStorageHandler.savePokemon(pokemon)).thenAnswer((_) async => true);
+        when(() => pokemonHttpHandler.fetchPokemonDetail(id)).thenAnswer((_) async => json.decode(fetchPokemonDetailResponse));
+        final cachedPokemon = await repo.getPokemon(id, fetchLatest: true);
+        verifyNever(() => pokemonLocalStorageHandler.readPokemon(id));
+        verify(() => pokemonLocalStorageHandler.savePokemon(cachedPokemon)).called(1);
+        verify(() => pokemonHttpHandler.fetchPokemonDetail(id)).called(1);
+        expect(cachedPokemon, isA<Pokemon>());
+        expect(cachedPokemon, pokemon);
+      });
+
       test('return fetched pokemon ', () async {
         when(() => pokemonLocalStorageHandler.readPokemon(id)).thenAnswer((_) async => null);
         when(() => pokemonLocalStorageHandler.savePokemon(pokemon)).thenAnswer((_) async => true);
         when(() => pokemonHttpHandler.fetchPokemonDetail(id)).thenAnswer((_) async => json.decode(fetchPokemonDetailResponse));
         final cachedPokemon = await repo.getPokemon(id);
         verify(() => pokemonLocalStorageHandler.savePokemon(cachedPokemon)).called(1);
+        verify(() => pokemonHttpHandler.fetchPokemonDetail(id)).called(1);
         expect(cachedPokemon, isA<Pokemon>());
         expect(cachedPokemon, pokemon);
       });
