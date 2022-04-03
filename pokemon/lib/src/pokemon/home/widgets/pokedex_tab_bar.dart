@@ -34,18 +34,20 @@ class PokedexTabBar extends StatelessWidget implements PreferredSizeWidget {
                 5.horizontalSpace,
                 BlocBuilder<FavouritePokemonsCubit, FavouritePokemonsState>(
                   builder: (context, state) {
+                    final favouriteCount = state.favouritePokemons.length;
+                    final radius = favouriteCount > 99 ? 30 : 20;
                     return Visibility(
-                      visible: state.favouritePokemons.isNotEmpty,
+                      visible: favouriteCount != 0,
                       child: Container(
-                        width: 20.w,
-                        height: 20.h,
+                        width: radius.w,
+                        height: radius.h,
                         decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           color: AppColors.introBackgroundColor,
                         ),
                         alignment: Alignment.center,
                         child: Text(
-                          state.favouritePokemons.length.toString(),
+                          favouriteCount.toString(),
                           style: TextStyle(
                             color: AppColors.textColorWhite,
                             fontSize: FontSizes.tiny,
