@@ -6,13 +6,16 @@ enum FavouritePokemonStateStatus {
   error,
 }
 
-class FavouritePokemonsState {
+class FavouritePokemonsState extends Equatable {
   final Set<PokemonId> favouritePokemons;
   final FavouritePokemonStateStatus stateStatus;
+  //this field here to differ states from each other.
+  final int stateId;
 
   const FavouritePokemonsState({
     required this.favouritePokemons,
     required this.stateStatus,
+    this.stateId = 0,
   });
 
   FavouritePokemonsState copyWith({
@@ -22,6 +25,14 @@ class FavouritePokemonsState {
     return FavouritePokemonsState(
       favouritePokemons: favouritePokemons ?? this.favouritePokemons,
       stateStatus: stateStatus ?? this.stateStatus,
+      stateId: stateId + 1,
     );
   }
+
+  @override
+  List<Object?> get props => [
+        stateStatus,
+        stateId,
+        stateStatus,
+      ];
 }

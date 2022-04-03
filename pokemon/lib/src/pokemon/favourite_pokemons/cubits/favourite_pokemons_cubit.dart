@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokemon_api/pokemon_repo.dart';
+import 'package:equatable/equatable.dart';
 
 part 'favourite_pokemons_state.dart';
 
