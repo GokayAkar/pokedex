@@ -8,7 +8,7 @@ enum PokemonDetailStateStatus {
   unknownError,
 }
 
-class PokemonDetailState {
+class PokemonDetailState extends Equatable {
   final PokemonDetailStateStatus status;
   final Pokemon? pokemon;
 
@@ -16,4 +16,10 @@ class PokemonDetailState {
     required this.status,
     required this.pokemon,
   });
+
+  @override
+  List<Object?> get props => [
+        status,
+        pokemon,
+      ];
 }
