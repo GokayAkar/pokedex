@@ -14,7 +14,7 @@
   "weight":"Weight",
   "bmi":"BMI",
   "markFavourite":"Mark as favourite",
-  "removeFromFavourites":"Mark as unfavourite",
+  "removeFromFavourites":"Remove from favourites",
   "baseStats":"Base Stats"
 
 }

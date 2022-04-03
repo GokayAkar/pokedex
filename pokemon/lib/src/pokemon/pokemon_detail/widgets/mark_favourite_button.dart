@@ -22,7 +22,6 @@ class MarkFavouriteButton extends StatelessWidget {
         final buttonColor = isSelected ? AppColors.favouriteButtonColor : AppColors.introBackgroundColor;
         final textColor = isSelected ? AppColors.introBackgroundColor : AppColors.textColorWhite;
         return SizedBox(
-          width: 201.w,
           height: 50.h,
           child: FloatingActionButton.extended(
             label: Text(
