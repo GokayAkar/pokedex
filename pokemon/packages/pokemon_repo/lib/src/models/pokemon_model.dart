@@ -30,7 +30,7 @@ class Pokemon extends Equatable {
     required this.bmi,
   });
 
-  Color get pokemonColor => types.first.color.withOpacity(0.3);
+  Color get pokemonColor => types.first.color;
   String get typesString => types.map((e) => e.name).join(', ');
 
   factory Pokemon({

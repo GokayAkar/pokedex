@@ -16,19 +16,6 @@ class PokemonDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final pokemon = ModalRoute.of(context)!.settings.arguments as Pokemon;
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: pokemon.pokemonColor,
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-        ),
-        iconTheme: const IconThemeData(
-          color: AppColors.textColorBlack,
-        ),
-      ),
       body: CustomScrollView(
         physics: const BouncingScrollPhysics(),
         slivers: [
@@ -36,8 +23,9 @@ class PokemonDetailPage extends StatelessWidget {
             delegate: PokemonSliverHeader(
               pokemon: pokemon,
               expandedHeight: 200.h,
+              statusBarHeight: MediaQuery.of(context).padding.top,
             ),
-            pinned: false,
+            pinned: true,
           ),
           SliverToBoxAdapter(
             child: Container(
