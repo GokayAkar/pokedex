@@ -13,6 +13,12 @@ If you get an error with the AppLocalizations file there is an issue with findin
 Project created with the skeleton template introduced with Flutter 2.5 version.
 Settings, theme, and localization services come with this template but since the design doesn't include them I didn't implement them.
 
+I left log error TODOs like this intentionally because the app is a demo and doesn't implement a logging service. But since those areas provide alternative values and recover from those errors we can't foresee,
+we should implement a logging service and log those errors somewhere else and monitor them in a real app to catch bugs and errors in our system or user-specific bugs we did not encounter during development.
+I would prefer firebase crashlytics for error logging and analytics for tracking user behaviors.
+
+The app includes an empty bloc observer because it doesn't require one for the moment but it is useful for debugging and logging specific bloc events from a single place.
+
 ## Packages
 
 flutter_bloc:
