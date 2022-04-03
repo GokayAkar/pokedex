@@ -30,8 +30,8 @@ class SharedPreferencesCacheHandler implements PokemonLocalStorageHandler {
   }
 
   @override
-  Future<bool> updateFavorites(Set<PokemonId> ids) async {
-    return await _prefs.setStringList(favoritesKey, ids.map((e) => e.toString()).toList());
+  Future<bool> updateFavorites(Set<PokemonId> ids) {
+    return _prefs.setStringList(favoritesKey, ids.map((e) => e.toString()).toList());
   }
 
   @override
