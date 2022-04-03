@@ -146,5 +146,9 @@ void main() {
       expect(newPokemonJson, isA<Map<String, dynamic>>());
       expect(newPokemonJson, equals(pokemonJson));
     });
+
+    test('typeString getter', () {
+      expect(pokemon.typesString, equals('Fire, Water, Random'));
+    });
   });
 }
