@@ -16,8 +16,12 @@ class PokemonErrorCard extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: mainAxisAlignment,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Text(errorText),
+        Text(
+          errorText,
+          textAlign: TextAlign.center,
+        ),
         IconButton(
           icon: const Icon(Icons.replay_outlined),
           onPressed: onTap,
