@@ -14,12 +14,14 @@ class FavouritePokemonsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FavouritePokemonsCubit, FavouritePokemonsState>(
-      builder: (context, state) => AnimatedSwitcher(
-        duration: AnimationConstants.animatedSwitcherDuration,
-        child: _Body(
-          state: state,
-          key: ValueKey(state.stateStatus),
+    return SafeArea(
+      child: BlocBuilder<FavouritePokemonsCubit, FavouritePokemonsState>(
+        builder: (context, state) => AnimatedSwitcher(
+          duration: AnimationConstants.animatedSwitcherDuration,
+          child: _Body(
+            state: state,
+            key: ValueKey(state.stateStatus),
+          ),
         ),
       ),
     );
