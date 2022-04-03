@@ -98,7 +98,7 @@ void main() {
       });
 
       test('throws RequestFailed exception ', () async {
-        final exception = RequestFailed();
+        const exception = RequestFailed();
         when(() => pokemonLocalStorageHandler.readPokemon(id)).thenAnswer((_) async => null);
         when(() => pokemonHttpHandler.fetchPokemonDetail(id)).thenThrow(exception);
         expect(() async => await repo.getPokemon(id), throwsA(exception));
@@ -139,7 +139,7 @@ void main() {
       });
 
       test('throws RequestFailed exception', () async {
-        final exception = RequestFailed();
+        const exception = RequestFailed();
         when(() => pokemonHttpHandler.fetchPokemons(limit: limit, offset: offset)).thenThrow(exception);
 
         expect(() async => await repo.getPokemonsToFetch(limit: limit, offset: offset), throwsA(exception));
