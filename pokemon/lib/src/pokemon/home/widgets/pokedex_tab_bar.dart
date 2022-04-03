@@ -8,27 +8,37 @@ class PokedexTabBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TabBar(
-      tabs: [
-        Tab(
-          text: context.l10n.allPokemons,
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        border: Border(
+          top: BorderSide(
+            width: 2.h,
+            color: AppColors.homeBackgroundColor,
+          ),
         ),
-        Tab(
-          text: context.l10n.favourites,
+      ),
+      child: TabBar(
+        tabs: [
+          Tab(
+            text: context.l10n.allPokemons,
+          ),
+          Tab(
+            text: context.l10n.favourites,
+          ),
+        ],
+        indicatorWeight: 4.h,
+        labelColor: AppColors.textColorBlack,
+        unselectedLabelColor: AppColors.textColorGrey,
+        labelStyle: TextStyle(
+          fontWeight: FontWeights.w500,
+          fontSize: FontSizes.normal,
         ),
-      ],
-      indicatorWeight: 4.h,
-      labelColor: AppColors.textColorBlack,
-      unselectedLabelColor: AppColors.textColorGrey,
-      labelStyle: TextStyle(
-        fontWeight: FontWeights.w500,
-        fontSize: FontSizes.normal,
+        unselectedLabelStyle: TextStyle(
+          fontWeight: FontWeights.w400,
+          fontSize: FontSizes.normal,
+        ),
+        indicatorColor: AppColors.introBackgroundColor,
       ),
-      unselectedLabelStyle: TextStyle(
-        fontWeight: FontWeights.w400,
-        fontSize: FontSizes.normal,
-      ),
-      indicatorColor: AppColors.introBackgroundColor,
     );
   }
 
