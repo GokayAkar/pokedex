@@ -7,6 +7,7 @@ part 'favourite_pokemons_state.dart';
 
 class FavouritePokemonsCubit extends Cubit<FavouritePokemonsState> {
   final PokemonRepo _repo;
+  final Set<PokemonId> _favorites = {};
 
   FavouritePokemonsCubit({
     required PokemonRepo repo,
@@ -35,9 +36,11 @@ class FavouritePokemonsCubit extends Cubit<FavouritePokemonsState> {
       }
       final favourites = await _repo.getFavoritePokemons();
 
+      _favorites.addAll(favourites);
+
       emit(
         state.copyWith(
-          favouritePokemons: favourites,
+          favouritePokemons: _favorites,
           stateStatus: FavouritePokemonStateStatus.successful,
         ),
       );
@@ -54,31 +57,31 @@ class FavouritePokemonsCubit extends Cubit<FavouritePokemonsState> {
   }
 
   Future<void> updateFavourites(PokemonId id) async {
-    if (state.favouritePokemons.contains(id)) {
-      state.favouritePokemons.remove(id);
+    if (_favorites.contains(id)) {
+      _favorites.remove(id);
     } else {
-      state.favouritePokemons.add(id);
+      _favorites.add(id);
     }
 
     emit(
       state.copyWith(
-        favouritePokemons: state.favouritePokemons,
+        favouritePokemons: _favorites,
       ),
     );
 
-    final result = await _repo.updateFavorites(state.favouritePokemons);
+    final result = await _repo.updateFavorites(_favorites);
 
     if (result) {
       return;
     } else {
-      if (state.favouritePokemons.contains(id)) {
-        state.favouritePokemons.remove(id);
+      if (_favorites.contains(id)) {
+        _favorites.remove(id);
       } else {
-        state.favouritePokemons.add(id);
+        _favorites.add(id);
       }
       emit(
         state.copyWith(
-          favouritePokemons: state.favouritePokemons,
+          favouritePokemons: _favorites,
         ),
       );
     }
