@@ -12,6 +12,9 @@ class StatRow extends StatelessWidget {
 
   Color _interpolate(double progress, List<Color> colors) {
     try {
+      if (progress > 1.0) {
+        progress = 1.0;
+      }
       int prevIndex = (progress * (colors.length - 1)).floor();
       double currProgress = (progress * (colors.length - 1)) - prevIndex;
       Color prevColor = colors[prevIndex];
