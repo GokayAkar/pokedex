@@ -20,6 +20,7 @@ dependencies:
     path: packages/pokemon_repo
   flutter_localizations:
     sdk: flutter
+  bloc_test: ^9.0.3
   
 
   
