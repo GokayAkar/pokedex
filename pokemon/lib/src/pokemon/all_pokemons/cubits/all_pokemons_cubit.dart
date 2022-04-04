@@ -8,7 +8,7 @@ part 'all_pokemons_state.dart';
 class AllPokemonsCubit extends Cubit<AllPokemonsState> {
   final PagingController<int, PriorPokemonInfo> _pagingController;
   final PokemonRepo _repo;
-  static const _limit = 12;
+  static const _limit = 120;
 
   AllPokemonsCubit({
     required PokemonRepo repo,
