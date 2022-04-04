@@ -42,7 +42,7 @@ class PokemonRepo {
 
     final pokemon = Pokemon(
       id: pokemonJson['id'],
-      imageUrl: imageUrl,
+      imageUrl: imageUrl ?? '',
       name: (pokemonJson['name'] as String).upperCaseFirstLetter,
       types: types,
       stats: stats,

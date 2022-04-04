@@ -28,11 +28,13 @@ class PokemonDetailCardUI extends StatelessWidget {
             child: Container(
               width: double.infinity,
               color: pokemon.pokemonColor,
-              child: CachedNetworkImage(
-                imageUrl: pokemon.imageUrl,
-                fit: BoxFit.fill,
-                placeholder: (_, __) => const LoadingWidget(),
-              ),
+              child: pokemon.imageUrl.isNotEmpty
+                  ? CachedNetworkImage(
+                      imageUrl: pokemon.imageUrl,
+                      fit: BoxFit.fill,
+                      placeholder: (_, __) => const LoadingWidget(),
+                    )
+                  : const PokeBall(),
             ),
           ),
           AppPaddings.p8.verticalSpace,

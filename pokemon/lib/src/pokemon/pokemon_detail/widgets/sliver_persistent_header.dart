@@ -73,15 +73,16 @@ class PokemonSliverHeader extends SliverPersistentHeaderDelegate {
                     fit: BoxFit.fitHeight,
                   ),
                 ),
-                Positioned(
-                  child: CachedNetworkImage(
-                    imageUrl: pokemon.imageUrl,
-                    fit: BoxFit.fitHeight,
-                    height: 136.h,
+                if (pokemon.imageUrl.isNotEmpty)
+                  Positioned(
+                    child: CachedNetworkImage(
+                      imageUrl: pokemon.imageUrl,
+                      fit: BoxFit.fitHeight,
+                      height: 136.h,
+                    ),
+                    bottom: 0,
+                    right: AppPaddings.p16.w,
                   ),
-                  bottom: 0,
-                  right: AppPaddings.p16.w,
-                ),
                 Positioned(
                   top: AppPaddings.p24.h + kToolbarHeight + statusBarHeight,
                   left: AppPaddings.p16.w,
