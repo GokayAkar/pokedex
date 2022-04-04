@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -69,6 +70,13 @@ class MyApp extends StatelessWidget {
               theme: ThemeData(
                 fontFamily: Fonts.notoSans,
                 scaffoldBackgroundColor: AppColors.homeBackgroundColor,
+                appBarTheme: const AppBarTheme(
+                  systemOverlayStyle: SystemUiOverlayStyle(
+                    statusBarColor: Colors.transparent,
+                    statusBarBrightness: Brightness.dark,
+                    statusBarIconBrightness: Brightness.dark,
+                  ),
+                ),
               ),
               themeMode: ThemeMode.light,
               onGenerateRoute: (RouteSettings routeSettings) {
