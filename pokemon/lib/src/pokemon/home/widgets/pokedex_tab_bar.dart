@@ -35,7 +35,11 @@ class PokedexTabBar extends StatelessWidget implements PreferredSizeWidget {
                 BlocBuilder<FavouritePokemonsCubit, FavouritePokemonsState>(
                   builder: (context, state) {
                     final favouriteCount = state.favouritePokemons.length;
-                    final radius = favouriteCount > 99 ? 30 : 20;
+                    final radius = favouriteCount > 99
+                        ? 30
+                        : favouriteCount > 9
+                            ? 25
+                            : 20;
                     return Visibility(
                       visible: favouriteCount != 0,
                       child: Container(
