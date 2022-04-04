@@ -22,8 +22,8 @@ class HomePage extends StatelessWidget {
         ),
         body: TabBarView(
           children: [
-            AllPokemonsPage(),
-            FavouritePokemonsPage(),
+            AllPokemonsPage(key: PageStorageKey('FirstTab')),
+            FavouritePokemonsPage(key: PageStorageKey('SecondTab')),
           ],
         ),
       ),
