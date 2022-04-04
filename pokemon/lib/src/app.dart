@@ -73,7 +73,7 @@ class MyApp extends StatelessWidget {
                 appBarTheme: const AppBarTheme(
                   systemOverlayStyle: SystemUiOverlayStyle(
                     statusBarColor: Colors.transparent,
-                    statusBarBrightness: Brightness.dark,
+                    statusBarBrightness: Brightness.light,
                     statusBarIconBrightness: Brightness.dark,
                   ),
                 ),
