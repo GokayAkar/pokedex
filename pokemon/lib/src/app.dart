@@ -69,8 +69,7 @@ class MyApp extends StatelessWidget {
                 fontFamily: Fonts.notoSans,
                 scaffoldBackgroundColor: AppColors.homeBackgroundColor,
               ),
-              darkTheme: ThemeData.dark(),
-              themeMode: settingsController.themeMode,
+              themeMode: ThemeMode.light,
               onGenerateRoute: (RouteSettings routeSettings) {
                 return MaterialPageRoute<void>(
                   settings: routeSettings,
